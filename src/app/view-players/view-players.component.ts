@@ -10,7 +10,13 @@ export class ViewPlayersComponent{
   title = "Players";
   players;
   
-  constructor(service: PlayerService) {
-    this.players = service.getPlayers();
-  }
+  constructor(private playerSvc: PlayerService) {}
+
+    getPlayers() {
+      console.log("ding");
+      
+      const players = this.playerSvc.getPlayers();
+      console.log(players);
+    }
+
 }

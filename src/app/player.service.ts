@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Injectable()
 export class PlayerService {
+  players: FirebaseListObservable<any[]>;
 
-  constructor() { }
+  constructor(private db: AngularFireDatabase) { }
 
   getPlayers() {
-    return ["Jordan", "Katie", "Larry", "Laura", "Jamison", "Jen", "Lindsey", "Spencer"];
+    return this.db.list('playerData/players');
   }
 
 }

@@ -1,0 +1,54 @@
+{
+    "playerData": {
+        "Players": {
+            "playerKey1": {
+                "name": "Jordan",
+                "score": 0,
+                "wins": 3
+            },
+            "playerKey2": {
+                "name": "Katie",
+                "score": 0,
+                "wins": 4
+            }
+        },
+
+        "games": {
+
+            "gamekey1": {
+                "key": 1,
+                "name": "Dominion"
+            },
+            "gamekey2": {
+                "key": 2,
+                "name": "Carcassonne"
+            }
+        },
+
+        "playersPerGame": {
+            "gameKey1": {
+                "nameKey1": true,
+                "nameKey3": true
+            },
+            "gameKey2": {
+                "nameKey1": true,
+                "nameKey2": true
+            }
+        },
+
+        "gamesPerPlayer": {
+            "playerKey1": {
+                "gameKey1": true,
+                "gameKey2": true
+            }
+        },
+            "playerKeys2": {
+                "gameKey2": true
+            },
+            "playerKeys3": {
+                "gameKey1": true
+            }
+        }
+
+    }
+}
