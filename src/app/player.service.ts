@@ -8,7 +8,20 @@ export class PlayerService {
   constructor(private db: AngularFireDatabase) { }
 
   getPlayers() {
-    return this.db.list('playerData/players');
+    const players = this.db.list('playerData/players');
+    console.log(players);
+    return players;
+    
+  }
+
+  savePlayer() {
+    let playerToSave = {
+      name: "Dinner!",
+      score: 0,
+      wins: 0
+    }
+
+    let dbSavePlayer = this.db.list('playerData/players').push(playerToSave);
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PlayerService } from '../player.service'
 
 @Component({
@@ -6,17 +6,30 @@ import { PlayerService } from '../player.service'
   templateUrl: './view-players.component.html',
   styleUrls: ['./view-players.component.css']
 })
-export class ViewPlayersComponent{
+export class ViewPlayersComponent implements OnInit {
   title = "Players";
   players;
   
   constructor(private playerSvc: PlayerService) {}
 
-    getPlayers() {
-      console.log("ding");
-      
-      const players = this.playerSvc.getPlayers();
-      console.log(players);
+  ngOnInit() {
+    this.players = this.playerSvc.getPlayers()
+                                  .subscribe(players => this.players=players);
+  }
+
+    savePlayer() {
+      this.playerSvc.savePlayer();
     }
+
+    incrementScore(player) {
+      player.score += 1;
+      console.log(`player: ${player.name} score: ${player.score}`);
+    }
+
+    decrementScore(player) {
+      player.score -= 1;
+      console.log(`player: ${player.name} score: ${player.score}`);
+    }
+
 
 }

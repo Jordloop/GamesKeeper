@@ -1,5 +1,6 @@
 {
     "playerData": {
+
         "Players": {
             "playerKey1": {
                 "name": "Jordan",
@@ -14,7 +15,6 @@
         },
 
         "games": {
-
             "gamekey1": {
                 "key": 1,
                 "name": "Dominion"
@@ -40,8 +40,7 @@
             "playerKey1": {
                 "gameKey1": true,
                 "gameKey2": true
-            }
-        },
+            },
             "playerKeys2": {
                 "gameKey2": true
             },
@@ -49,6 +48,5 @@
                 "gameKey1": true
             }
         }
-
     }
 }
