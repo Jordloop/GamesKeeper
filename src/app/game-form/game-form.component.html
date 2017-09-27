@@ -1,0 +1,24 @@
+<h2>Game Form</h2>
+<form #form="ngForm" (ngSubmit)="saveGame(form)">
+  <div class="form-group">
+    <label for="gameName">Name</label>
+    <input 
+      required 
+      minlength="1" 
+      maxlength="20" 
+      ngModel name="gameName"
+      id="gameName" 
+      #gameName="ngModel"
+      type="text"
+      class="form-control">
+    <div *ngIf="gameName.touched && !gameName.valid" class="alert alert-danger">
+      <div *ngIf="gaaeName.errors.required">
+        Name is required
+      </div>
+      <div *ngIf="gameName.errors.minlength">
+        Name should be minimum 1 character
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary" [disabled]="!form.valid">Submit</button>
+</form>

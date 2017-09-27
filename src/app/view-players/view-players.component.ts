@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PlayerService } from '../player.service'
+import { PlayerService } from '../services/player.service'
 
 @Component({
   selector: 'view-players',
@@ -13,13 +13,12 @@ export class ViewPlayersComponent implements OnInit {
   constructor(private playerSvc: PlayerService) {}
 
   ngOnInit() {
-    this.players = this.playerSvc.getPlayers()
-                                  .subscribe(players => this.players=players);
+    this.playerSvc.getPlayers().subscribe(players => {
+      this.players = players;
+    });
   }
 
-    savePlayer() {
-      this.playerSvc.savePlayer();
-    }
+
 
     incrementScore(player) {
       player.score += 1;

@@ -1,11 +1,9 @@
 <h2>{{ title }}</h2>
-<h4 (click)="savePlayer()">Add Player</h4>
 <ul>
   <li *ngFor="let player of players">
-    <p>{{ player.name }}</p>
-    <p>{{ player.wins }}</p>
-
-    <p><span (click)="decrementScore(player)">-</span> {{ player.score }} <span (click)="incrementScore(player)">+</span> </p>
-       
+    <p>Name: {{ player.name }}</p>
+    <p>Score: <span (click)="decrementScore(player)"><- </span>{{ player.score }} <span (click)="incrementScore(player)"> -></span> </p> 
+    <p>Wins: {{ player.totalWins }}</p>
+    <p>Place: {{ player.place }}</p>
   </li>
 </ul>
