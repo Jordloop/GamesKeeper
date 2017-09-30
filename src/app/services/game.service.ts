@@ -7,22 +7,7 @@ export class GameService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  getGames() {
-    this.games$ = this.db.list('gameData/games');
-    console.log('games$', this.games$);
-    
-    return this.games$;  }
 
-  saveGame(gameData) {
-    console.log('service', gameData);
-    
-    let gameToSave = {
-      name: gameData.gameName,
 
-    }
-
-    let dbSaveGame = this.db.list('gameData/games').push(gameToSave);
-
-  }
 
 }

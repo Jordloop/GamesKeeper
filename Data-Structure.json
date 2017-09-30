@@ -1,0 +1,47 @@
+{
+    "playerData": {
+
+    },
+
+    "gameData": {
+        "games": {
+            "game$Key": {
+                "name": "Dominion",
+                "runs": {
+                    "run$Key": true
+                }
+            }
+
+        },
+
+        "runs": {
+            "run%Key": {
+                "game$Key": true,
+                "players": {
+                    "player$Key": {
+                        "name": "Jordan",
+                        "score": 0
+                    }
+                }
+            }
+        }
+    },
+
+    "associationData": {
+        "runsPerGame": {
+            "game$Key": {
+                "run$Key1": true
+            }
+        },
+        "runsPerPlayer": {
+            "player$Key": {
+                "run$Key": true
+            }
+        },
+        "playersPerRun": {
+            "run$key": {
+                "player$Key": true
+            }
+        }
+    }
+}

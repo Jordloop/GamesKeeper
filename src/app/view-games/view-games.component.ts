@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { GameService } from '../services/game.service';
 
 @Component({
@@ -8,16 +8,20 @@ import { GameService } from '../services/game.service';
 })
 export class ViewGamesComponent implements OnInit {
   title = "Games";
-  games;
+  @Input() games;
+  viewGameForm = false;
 
   constructor(private gameSvc: GameService) {}
 
   ngOnInit() {
     this.gameSvc.getGames().subscribe(games => {
       this.games = games;
-      console.log('games:', this.games);
       
     });
+  }
+
+  gameFormToggle() {
+    this.viewGameForm ? this.viewGameForm = false : this.viewGameForm = true;
   }
 
 }
