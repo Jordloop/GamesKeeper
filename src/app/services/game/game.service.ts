@@ -15,14 +15,15 @@ export class GameService {
   ) { }
 
 // G
-  saveGame(gameData) {
-    this.getAllGames().push(gameData);
-  }
-// G
   getAllGames() {
     const games$ = this.db.list('gameData/games');
     return games$;
   }
+
+// G  
+  saveGame(gameData) {
+    this.getAllGames().push(gameData);
+  } 
 
   getGameByKey(gameKey) {
     const game$ = this.db.object(`gameData/games/${gameKey}`);

@@ -14,15 +14,15 @@ export class PlayerService {
     private router: Router
   ) { }
 
-  savePlayer(playerData) {
-    this.getAllPlayers().push(playerData);
-  }
-  
   getAllPlayers() {
     const players$ = this.db.list('playerData/players');
     return players$;
   }
 
+  savePlayer(playerData) {
+    this.getAllPlayers().push(playerData);
+  }  
+  
   getPlayerByKey(playerKey) {
     const player$ = this.db.object(`playerData/players/${playerKey}`);
     return player$;
@@ -31,9 +31,6 @@ export class PlayerService {
   navigateToPlayerDetail(playerKey: any) {
     this.router.navigate([`players/${playerKey}`]);
   }
-// playersPerRun
-  getPlayersByRunKey(runKey: any) {
-    return this.db.list(`associationData/playersPerRun/${runKey}`);
-  }
+
 
 }

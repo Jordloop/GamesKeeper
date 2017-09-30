@@ -13,30 +13,43 @@ export class RunService {
     private router: Router
   ) { }
 
-  // G
-  saveRun(runData) {
-    this.getAllRuns().push(runData);
-    this.getRunsByGameKey(runData.game$Key).push(runData);
-
-  }
-  // G
+// G
   getAllRuns() {
     const runs$ = this.db.list('gameData/runs');
     return runs$;
   }
+  
+  getRunsByGameKey(gameKey: any) {
+    return this.db.list(`associationData/runsPerGame/${gameKey}`);
+  } 
 
-  getGameByKey(runKey) {
+// G
+  saveRun(runData) {
+    this.getAllRuns().push(runData);
+    this.getRunsByGameKey(runData.game$Key).push(runData);
+  }  
+
+  getGameByRunKey(runKey) {
     const run$ = this.db.object(`gameData/runs/${runKey}`);
     return run$;
   }
 
-  // runsPerGame
-  getRunsByGameKey(gameKey: any) {
-    return this.db.list(`associationData/runsPerGame/${gameKey}`);
-  }  
 
-  // runsPerPlayer
-  getRunsByPlayerKey() {
-
+  getRunsByPlayerKey(playerKey) {
+    return this.db.list(`associationData/runsPerPlayer/${playerKey}`)
   }
+
+  getPlayersByRunKey(runKey: any) {
+    return this.db.list(`associationData/playersPerRun/${runKey}`);
+  }
+  
+  addPlayerToRun(runData, playerData) {
+    this.getPlayersByRunKey(runData.key).push(playerData);
+    this.getRunsByPlayerKey(playerData.Key).push(runData);
+  }
+
+  navigateToRunDetail(runKey: any) {
+    this.router.navigate([`gameData/runs/${runKey}`]);
+  }
+
 }

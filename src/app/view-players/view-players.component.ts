@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PlayerService } from '../services/player/player.service'
 import { GameService } from '../services/game/game.service';
+import { RunService } from '../services/run/run.service';
 
 @Component({
   selector: 'view-players',
@@ -14,7 +15,8 @@ export class ViewPlayersComponent implements OnInit {
 
   constructor(
     private playerSvc: PlayerService,
-    private gameSvc: GameService
+    private gameSvc: GameService,
+    private runSvc: RunService
   ) {}
 
   ngOnInit() {
@@ -31,7 +33,7 @@ export class ViewPlayersComponent implements OnInit {
 
   playerClicked(player) {
     console.log(player.$key);
-    this.gameSvc.addPlayerToRun(player.$key);
+    // this.runSvc.addPlayerToRun(player.$key);
     
   }
 

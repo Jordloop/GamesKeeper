@@ -10,8 +10,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 //Services
-import { GameService } from './services/game.service';
-import { PlayerService } from './services/player.service';
+import { GameService } from './services/game/game.service';
+import { PlayerService } from './services/player/player.service';
+import { RunService } from './services/run/run.service';
 //Components
 import { AppComponent } from './app.component';
 import { ViewPlayersComponent } from './view-players/view-players.component';
@@ -49,7 +50,8 @@ export const firebaseConfig = {
 
   providers: [
     GameService,
-    PlayerService
+    PlayerService,
+    RunService
   ],
   bootstrap: [AppComponent]
 })
