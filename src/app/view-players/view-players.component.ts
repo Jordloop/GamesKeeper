@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PlayerService } from '../services/player.service'
-import { GameService } from '../services/game.service';
+import { PlayerService } from '../services/player/player.service'
+import { GameService } from '../services/game/game.service';
 
 @Component({
   selector: 'view-players',
@@ -18,11 +18,11 @@ export class ViewPlayersComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.playerSvc.getPlayers().subscribe(players => {
-      this.players = players;
-      console.log(players);
+    // this.playerSvc.getPlayers().subscribe(players => {
+    //   this.players = players;
+    //   console.log(players);
       
-    });
+    // });
   }
 
   playerFormToggle() {
@@ -31,7 +31,7 @@ export class ViewPlayersComponent implements OnInit {
 
   playerClicked(player) {
     console.log(player.$key);
-    this.gameSvc.addPlayerToGame(player.$key);
+    this.gameSvc.addPlayerToRun(player.$key);
     
   }
 

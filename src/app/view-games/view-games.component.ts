@@ -9,15 +9,24 @@ import { GameService } from '../services/game.service';
 export class ViewGamesComponent implements OnInit {
   title = "Games";
   @Input() games;
+  game$;
   viewGameForm = false;
 
-  constructor(private gameSvc: GameService) {}
+  constructor(
+    private gameSvc: GameService,
+    ) {}
 
   ngOnInit() {
-    this.gameSvc.getGames().subscribe(games => {
+    this.gameSvc.getAllGames().subscribe(games => {
       this.games = games;
-      
     });
+    this.gameSvc.getGameByKey("-KvJMaQl4F_hHikoIWHy").subscribe(console.log);
+  }
+
+  navigateToGameDetail(game) {
+    console.log('boop');
+    
+    this.gameSvc.navigateToGameDetail(game.$key);
   }
 
   gameFormToggle() {

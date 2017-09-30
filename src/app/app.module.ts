@@ -6,6 +6,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FirebaseApp } from 'angularfire2';
 import { routing } from './app.routing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 //Services
 import { GameService } from './services/game.service';
@@ -17,6 +19,7 @@ import { ViewGamesComponent } from './view-games/view-games.component';
 import { PlayerFormComponent } from './player-form/player-form.component';
 import { GameFormComponent } from './game-form/game-form.component';
 import { ScorecardComponent } from './scorecard/scorecard.component';
+import { GameDetailComponent } from './game-detail/game-detail.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -33,15 +36,17 @@ export const firebaseConfig = {
     ViewGamesComponent,
     PlayerFormComponent,
     GameFormComponent,
-    ScorecardComponent
+    ScorecardComponent,
+    GameDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     routing,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
   ],
+
   providers: [
     GameService,
     PlayerService

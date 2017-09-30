@@ -1,0 +1,17 @@
+
+<section class="container">
+  <div class="game">
+    <article>
+        <h2>This game has key: {{ game$key }}</h2>
+        <h2>This game has key: {{ game.gameName }}</h2>
+      <ul>
+        <li *ngFor="let player of game.players"></li>
+      </ul>
+      </article>
+  </div>
+  <div class="player-list">
+    <article>
+      <view-players [players]="players"></view-players>
+    </article>
+  </div>
+</section>

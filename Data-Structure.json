@@ -1,6 +1,11 @@
 {
     "playerData": {
-
+        "players": {
+            "player$Key": {
+                "name": "Jordan",
+                "score": 0
+            }
+        }
     },
 
     "gameData": {

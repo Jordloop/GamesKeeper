@@ -4,6 +4,6 @@
 <hr>
 <ul>
   <li *ngFor="let game of games">
-    {{ game.name }}
+    <h3 (click)="navigateToGameDetail(game)">{{ game.gameName }}</h3>
   </li>
 </ul>
