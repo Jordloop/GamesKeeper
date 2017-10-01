@@ -2,13 +2,13 @@
 <form #form="ngForm" (ngSubmit)="savePlayer(form)">
   <div >
     <div class="form-group">
-      <label for="playerName">Name</label>
+      <label for="name">Name</label>
       <input 
+        name="name"
         required
         minlength="3"
         maxlength="12"
         ngModel 
-        name="playerName"
         id="playerName"
         #firstName="ngModel"
         type="text"
