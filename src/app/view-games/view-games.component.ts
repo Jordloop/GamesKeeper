@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { GameService } from '../services/game/game.service';
+import { RunService } from '../services/run/run.service';
 
 @Component({
   selector: 'view-games',
@@ -14,6 +15,7 @@ export class ViewGamesComponent implements OnInit {
 
   constructor(
     private gameSvc: GameService,
+    private runSvc: RunService
     ) {}
 
   ngOnInit() {
@@ -22,6 +24,14 @@ export class ViewGamesComponent implements OnInit {
     });
     this.gameSvc.getGameByKey("-KvJMaQl4F_hHikoIWHy").subscribe(console.log);
   }
+
+
+  createRun(game) {
+    console.log(game);
+    this.runSvc.createRun(game);
+    
+  }
+
 
   navigateToGameDetail(game) {
     console.log('boop');
