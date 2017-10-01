@@ -20,7 +20,12 @@ export class PlayerService {
   }
 
   savePlayer(playerData) {
-    this.getAllPlayers().push(playerData);
+  
+    const playerToSave = {
+      name: playerData.name,
+      score: 0
+    }
+    this.getAllPlayers().push(playerToSave);
   }  
   
   getPlayerByKey(playerKey) {

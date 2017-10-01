@@ -15,25 +15,32 @@ export class RunService {
 
 // G
   getAllRuns() {
-    const runs$ = this.db.list('gameData/runs');
+    const runs$ = this.db.list('runData/runs');
     return runs$;
   }
   
-  getRunsByGameKey(gameKey: any) {
-    return this.db.list(`associationData/runsPerGame/${gameKey}`);
-  } 
+  createRunsPerGameAssociation() {
 
-// G
-  saveRun(runData) {
-    this.getAllRuns().push(runData);
-    this.getRunsByGameKey(runData.game$Key).push(runData);
-  }  
+  }
+  
 
-  getGameByRunKey(runKey) {
-    const run$ = this.db.object(`gameData/runs/${runKey}`);
-    return run$;
+  createRun(gameKey) {
+    let  runToSave = {
+      gameKey: gameKey,
+    } 
+    let run = this.getAllRuns().push(runToSave);    
+    this.addRunKeyToGame(gameKey, run.key);
   }
 
+  addRunKeyToGame(gameKey, runKey) {
+    this.db.object(`gameData/games/${gameKey}/runs/${runKey}`).set(true)
+
+  }
+
+  getGameByRunKey(runKey) {
+    const run$ = this.db.object(`runData/runs/${runKey}`);
+    return run$;
+  }
 
   getRunsByPlayerKey(playerKey) {
     return this.db.list(`associationData/runsPerPlayer/${playerKey}`)
@@ -49,7 +56,7 @@ export class RunService {
   }
 
   navigateToRunDetail(runKey: any) {
-    this.router.navigate([`gameData/runs/${runKey}`]);
+    this.router.navigate([`runData/runs/${runKey}`]);
   }
 
 }
