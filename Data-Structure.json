@@ -7,7 +7,7 @@
             }
         }
     },
-
+//complete
     "gameData": {
         "games": {
             "game$Key": {
@@ -17,11 +17,13 @@
                 }
             }
 
-        },
-
+        }
+    },
+    "runData": {
         "runs": {
-            "run%Key": {
+            "run$Key": {
                 "game$Key": true,
+                
                 "players": {
                     "player$Key": {
                         "name": "Jordan",
@@ -31,13 +33,7 @@
             }
         }
     },
-
     "associationData": {
-        "runsPerGame": {
-            "game$Key": {
-                "run$Key1": true
-            }
-        },
         "runsPerPlayer": {
             "player$Key": {
                 "run$Key": true
