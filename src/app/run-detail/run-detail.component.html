@@ -1,3 +1,18 @@
-<p>
-  run-detail works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="-8">
+      <h2>{{ run.gameName }}</h2>
+      <p>Run key: {{ run.$key }}</p>
+      <p>Game key: {{ run.gameKey }}</p>
+    </div>
+    <pre>{{ players | json}}</pre>
+    <div *ngFor="let player of players">
+      {{player.playerName}}
+      <span (click)="incrementScore(run, player)">{{ player.score }}</span>
+      
+    </div>
+    <div class="col-4">
+      <view-players></view-players>
+    </div>
+  </div>
+</div>

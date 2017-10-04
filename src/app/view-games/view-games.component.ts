@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { GameService } from '../services/game/game.service';
 import { RunService } from '../services/run/run.service';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import 'rxjs/Rx';
 
 @Component({
   selector: 'view-games',
@@ -9,33 +11,32 @@ import { RunService } from '../services/run/run.service';
 })
 export class ViewGamesComponent implements OnInit {
   title = "Games";
-  @Input() games;
-  game$;
   viewGameForm = false;
+  @Input() games;
+  runs$: FirebaseListObservable<any>;
+  newRun;
 
   constructor(
     private gameSvc: GameService,
-    private runSvc: RunService
-    ) {}
+    private runSvc: RunService,
+    private db: AngularFireDatabase) { }
 
   ngOnInit() {
     this.gameSvc.getAllGames().subscribe(games => {
       this.games = games;
     });
-    this.gameSvc.getGameByKey("-KvJMaQl4F_hHikoIWHy").subscribe(console.log);
+    this.runSvc.getAllRuns().subscribe(runs => {
+      this.newRun = runs[runs.length-1];
+      console.log(this.newRun);
+    })
   }
-
 
   createRun(game) {
-    console.log(game);
     this.runSvc.createRun(game);
-    
+    this.runSvc.navigateToRunDetail(this.newRun.$key);    
   }
 
-
   navigateToGameDetail(game) {
-    console.log('boop');
-    
     this.gameSvc.navigateToGameDetail(game.$key);
   }
 

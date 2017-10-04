@@ -2,8 +2,6 @@
 <h3 (click)="playerFormToggle()">Add Player</h3>
 <player-form *ngIf="viewPlayerForm"></player-form>
 <hr>
-<ul>
-  <li *ngFor="let player of players">
-    <p (click)="playerClicked(player)">Name: {{ player.name }}</p>
-  </li>
-</ul>
+<div *ngFor="let player of players">
+  <p (click)="playerClicked(player)"><span class="addPlayerToRun(player)"> + </span> {{ player.name }}</p>
+</div>

@@ -23,7 +23,7 @@
         "runs": {
             "run$Key": {
                 "game$Key": true,
-                
+                "gameName": "Dominion",                
                 "players": {
                     "player$Key": {
                         "name": "Jordan",

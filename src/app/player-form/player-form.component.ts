@@ -11,8 +11,8 @@ export class PlayerFormComponent implements OnInit {
   constructor(private playerSvc: PlayerService) { }
   
   savePlayer(playerData) {
-    this.playerSvc.savePlayer(playerData.value);
     console.log(playerData.value);
+    this.playerSvc.savePlayer(playerData.value);
   }
 
   ngOnInit() {

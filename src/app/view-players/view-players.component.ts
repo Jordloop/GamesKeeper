@@ -12,6 +12,7 @@ export class ViewPlayersComponent implements OnInit {
   title = "Players";
   @Input() players;
   viewPlayerForm = false;
+  newRun;
 
   constructor(
     private playerSvc: PlayerService,
@@ -20,20 +21,24 @@ export class ViewPlayersComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.playerSvc.getPlayers().subscribe(players => {
-    //   this.players = players;
-    //   console.log(players);
+    this.playerSvc.getAllPlayers().subscribe(players => {
+      this.players = players;
+    });
+    this.runSvc.getAllRuns().subscribe(runs => {
+      this.newRun = runs[runs.length - 1];
       
-    // });
+    })
   }
 
   playerFormToggle() {
     this.viewPlayerForm ? this.viewPlayerForm = false : this.viewPlayerForm = true;
   }
 
+
+
   playerClicked(player) {
-    console.log(player.$key);
-    // this.runSvc.addPlayerToRun(player.$key);
+    console.log(player);
+    this.runSvc.addPlayerToRun(this.newRun, player);
     
   }
 

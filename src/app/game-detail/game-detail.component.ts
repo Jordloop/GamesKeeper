@@ -9,7 +9,7 @@ import { GameService } from '../services/game/game.service';
   styleUrls: ['./game-detail.component.css']
 })
 export class GameDetailComponent implements OnInit {
-  game$key: string = null;
+  gameKey: string = null;
   game;
 
   constructor(
@@ -20,9 +20,9 @@ export class GameDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach((params) => {
-      this.game$key = params['$key'];
+      this.gameKey = params['$key'];
     })
-    this.gameSvs.getGameByKey(this.game$key).subscribe(game => {
+    this.gameSvs.getGameByKey(this.gameKey).subscribe(game => {
       this.game = game;
 
     })
