@@ -22,7 +22,6 @@ export class RunService {
 
   }
   
-
   createRun(game) {
     let  runToSave = {
       gameKey: game.$key,
@@ -72,11 +71,16 @@ export class RunService {
   }
   
   addPlayerToRun(runData, playerData) {
+    // debugger
+    console.log(playerData);
+    
     let playerToSave = {
       playerKey: playerData.$key,
       playerName: playerData.name,
       score: 0
     }
+    console.log(playerToSave);
+    
     this.updatePlayerInRunData(runData.$key, playerData.$key).update(playerToSave)
     this.updatePlayerInPlayersPerRun(runData.$key, playerData.$key).update(playerToSave);
     // this.getRunsByPlayerKey(playerData.Key).push(runData);

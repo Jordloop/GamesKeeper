@@ -3,5 +3,5 @@
 <player-form *ngIf="viewPlayerForm"></player-form>
 <hr>
 <div *ngFor="let player of players">
-  <p (click)="playerClicked(player)"><span class="addPlayerToRun(player)"> + </span> {{ player.name }}</p>
+  <p (click)="addPlayerToRun(player)"> + </p><p> {{ player.name }}</p>
 </div>

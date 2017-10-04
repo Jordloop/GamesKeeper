@@ -24,8 +24,12 @@ export class ViewPlayersComponent implements OnInit {
     this.playerSvc.getAllPlayers().subscribe(players => {
       this.players = players;
     });
-    this.runSvc.getAllRuns().subscribe(runs => {
-      this.newRun = runs[runs.length - 1];
+    debugger
+    this.runSvc.getAllRuns().last().subscribe(run => {
+      this.newRun = run;
+      console.log(`run: ${run} newRun ${this.newRun}`);  
+      console.log(run);
+      console.log(this.newRun);
       
     })
   }
@@ -34,12 +38,10 @@ export class ViewPlayersComponent implements OnInit {
     this.viewPlayerForm ? this.viewPlayerForm = false : this.viewPlayerForm = true;
   }
 
-
-
-  playerClicked(player) {
+  addPlayerToRun(player) {
     console.log(player);
-    this.runSvc.addPlayerToRun(this.newRun, player);
     
+    this.runSvc.addPlayerToRun(this.newRun, player);
   }
 
   incrementScore(player) {
