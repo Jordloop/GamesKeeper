@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GameService } from '../../services/game/game.service';
 
 @Component({
   selector: 'app-game-selection',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameSelectionComponent implements OnInit {
 
-  constructor() { }
+  gameData: any = {
+    name: "Dominion",
+    sessionsCount: 0
+  };
+  
+  constructor(private gameSvc: GameService) { }
 
   ngOnInit() {
+    // console.log('gameData component', this.gameData);    
+    // this.gameSvc.saveGame(this.gameData);
   }
+
 
 }

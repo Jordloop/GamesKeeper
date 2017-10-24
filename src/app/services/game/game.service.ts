@@ -14,21 +14,25 @@ export class GameService {
     private router: Router
   ) { }
 
-// G
-  getAllGames() {
-    const games$ = this.db.list('gameData/games');
-    return games$;
+
+
+  getGames() {
+    return this.db.list('gameData/games');
   }
 
-// G  
   saveGame(gameData) {
-    this.getAllGames().push(gameData);
-  } 
+    const gameToSave = {
+      name: gameData.name,
+      sessionsCount: gameData.sessionsCount
+    }
+    console.log('saveGame service', gameToSave);
+    this.getGames().push(gameData);
+    } 
 
-  getGameByKey(gameKey) {
-    const game$ = this.db.object(`gameData/games/${gameKey}`);
-    return game$;
-  }
+    getGameByKey(gameKey) {
+      return this.db.object(`gameData/games/${gameKey}`);
+    }
+    // ------------------------------------- 
 
   navigateToGameDetail(gameKey: any) {
     this.router.navigate([`games/${gameKey}`]);
