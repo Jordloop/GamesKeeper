@@ -23,6 +23,7 @@ import { ScorecardComponent } from './scorecard/scorecard.component';
 import { GameDetailComponent } from './game-detail/game-detail.component';
 import { RunDetailComponent } from './run-detail/run-detail.component';
 import { PlayerDetailComponent } from './player-detail/player-detail.component';
+import { GameSelectionComponent } from './game-selection/game-selection.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -42,7 +43,8 @@ export const firebaseConfig = {
     ScorecardComponent,
     GameDetailComponent,
     RunDetailComponent,
-    PlayerDetailComponent
+    PlayerDetailComponent,
+    GameSelectionComponent
   ],
   imports: [
     BrowserModule,

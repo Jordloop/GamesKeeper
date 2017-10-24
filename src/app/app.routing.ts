@@ -11,7 +11,7 @@ import { RunDetailComponent } from './run-detail/run-detail.component';
 
 const appRoutes: Routes = [
     {
-        path: 'games',
+        path: '',
         component: ViewGamesComponent
     },
     {

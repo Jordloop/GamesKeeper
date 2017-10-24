@@ -1,9 +1,0 @@
-<h2>{{ title }}</h2>
-<h3 (click)="gameFormToggle()">Add Game</h3>
-<game-form *ngIf="viewGameForm"></game-form>
-<hr>
-<ul>
-  <li *ngFor="let game of games">
-    <h3 (click)="createRun(game)">{{ game.gameName }}</h3>
-  </li>
-</ul>
