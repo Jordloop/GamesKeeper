@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
@@ -7,8 +7,6 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FirebaseApp } from 'angularfire2';
 import { routing } from './app.routing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
 //Services
 import { GameService } from './services/game/game.service';
 import { PlayerService } from './services/player/player.service';
@@ -51,6 +49,7 @@ export const firebaseConfig = {
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     routing,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
