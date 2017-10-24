@@ -14,16 +14,8 @@ import { GameService } from './services/game/game.service';
 import { PlayerService } from './services/player/player.service';
 import { RunService } from './services/run/run.service';
 //Components
-import { AppComponent } from './app.component';
-import { ViewPlayersComponent } from './view-players/view-players.component';
-import { ViewGamesComponent } from './view-games/view-games.component';
-import { PlayerFormComponent } from './player-form/player-form.component';
-import { GameFormComponent } from './game-form/game-form.component';
-import { ScorecardComponent } from './scorecard/scorecard.component';
-import { GameDetailComponent } from './game-detail/game-detail.component';
-import { RunDetailComponent } from './run-detail/run-detail.component';
-import { PlayerDetailComponent } from './player-detail/player-detail.component';
-import { GameSelectionComponent } from './game-selection/game-selection.component';
+import { AppComponent } from '../components/app/app.component';
+import { GameSelectionComponent } from './components/game-selection/game-selection.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -36,14 +28,6 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    ViewPlayersComponent,
-    ViewGamesComponent,
-    PlayerFormComponent,
-    GameFormComponent,
-    ScorecardComponent,
-    GameDetailComponent,
-    RunDetailComponent,
-    PlayerDetailComponent,
     GameSelectionComponent
   ],
   imports: [
