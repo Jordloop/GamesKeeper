@@ -2,4 +2,16 @@
   <p>
     game-form works!
   </p>
+  <form [formGroup]="form">
+    <label for="name">Name</label>
+    <input formControlName="name"
+           id="name"
+           type="text">
+    <input hidden
+           formControlName="sessionsCount"
+           id="sessionsCount"
+           value="0"
+           type="number">
+    <button type="submit">Create Game</button>
+  </form>
 </div>
