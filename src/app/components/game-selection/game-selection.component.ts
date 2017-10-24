@@ -7,7 +7,9 @@ import { GameService } from '../../services/game/game.service';
   styleUrls: ['./game-selection.component.css']
 })
 export class GameSelectionComponent implements OnInit {
-  games: any[];
+  gameKey: string = "-KxFUCmUOw9JnLHHPmVT";
+  game: object;
+  games: object[];
   gameData: any = {
     name: "Carcassonne",
     sessionsCount: 0
@@ -16,6 +18,10 @@ export class GameSelectionComponent implements OnInit {
   constructor(private gameSvc: GameService) { }
 
   ngOnInit() {
+    // this.gameSvc.getGameByKey(this.gameKey).subscribe(game => {
+    //   if(game)
+    //     this.game = game
+    // })
     // this.gameSvc.getGames().subscribe(games => {
     //   this.games = games;
     //   if(games)
