@@ -1,0 +1,14 @@
+#component-container {
+    width: 75%;
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    background-color: blanchedalmond;
+    border: 1px solid black;
+    text-align: center;
+}
+
+p {
+    padding: 5px
+}
