@@ -13,6 +13,7 @@ export class GameDetailComponent implements OnInit {
 
   gameKey: string = null;
   game;
+  sessionKey: string = null;
   constructor(
     private route: ActivatedRoute,
     private location: Location,
@@ -27,7 +28,8 @@ export class GameDetailComponent implements OnInit {
   getGameKeyViaRoute() {
     this.route.params.forEach((param) => {
       if(param)
-        this.gameKey = (param['id']);
+        this.gameKey = (param['game']);
+        this.sessionKey = (param['session'])
     });
     console.log('onInit, gameKey:', this.gameKey);
   }

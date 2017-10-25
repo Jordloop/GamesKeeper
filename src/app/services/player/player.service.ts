@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
-import { RunService } from '../run/run.service';
+// import { RunService } from '../run/run.service';
 
 
 @Injectable()
@@ -13,7 +13,7 @@ export class PlayerService {
   constructor(
     private db: AngularFireDatabase,
     private router: Router,
-    private runSvc: RunService
+    // private runSvc: RunService
   ) { }
 
   getPlayers() {
@@ -42,16 +42,16 @@ export class PlayerService {
     this.router.navigate([`players/${playerKey}`]);
   }
 
-    incrementScore(run, player) {
-      const newScore = player.score += 1;
-      this.runSvc.updatePlayerInPlayersPerRun(run.$key, player.$key).update({ score: newScore })
-      this.runSvc.updatePlayerInRunData(run, player).update({ score: newScore })
-    }
+    // incrementScore(run, player) {
+    //   const newScore = player.score += 1;
+    //   this.runSvc.updatePlayerInPlayersPerRun(run.$key, player.$key).update({ score: newScore })
+    //   this.runSvc.updatePlayerInRunData(run, player).update({ score: newScore })
+    // }
 
-    decrementScore(run, player) {
-      const newScore = player.score -= 1;
-      this.runSvc.updatePlayerInPlayersPerRun(run.$key, player.$key).update({ score: newScore })
-      this.runSvc.updatePlayerInRunData(run, player).update({ score: newScore })
-    }
+    // decrementScore(run, player) {
+    //   const newScore = player.score -= 1;
+    //   this.runSvc.updatePlayerInPlayersPerRun(run.$key, player.$key).update({ score: newScore })
+    //   this.runSvc.updatePlayerInRunData(run, player).update({ score: newScore })
+    // }
 
 }

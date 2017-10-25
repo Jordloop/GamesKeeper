@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayerService } from '../../services/player/player.service';
+import { SessionService } from '../../services/session/session.service';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -10,12 +13,26 @@ import { PlayerService } from '../../services/player/player.service';
 export class PlayerListComponent implements OnInit {
   players: object[];
   player;
-
-  constructor(private playerSvc: PlayerService) { }
+  sessionKey;
+  constructor(
+    private playerSvc: PlayerService,
+    private sessionSvc: SessionService,
+    private route: ActivatedRoute,
+    private location: Location,
+  ) { }
 
 
   ngOnInit() {
+    this.getSessionKeyByRoute();
     this.getPlayers();
+  }
+
+  getSessionKeyByRoute() {
+    this.route.params.forEach((param) => {
+      if (param)
+        this.sessionKey = (param['id']);
+    });
+    console.log('onInit, sessionKey:', this.sessionKey);
   }
 
   getPlayers() {
@@ -25,6 +42,15 @@ export class PlayerListComponent implements OnInit {
     })
   }
 
+  playerClicked(player) {
+    console.log('player', player);
+    this.addPlayerToSession(this.sessionKey, player);
+    
+  }
 
+  addPlayerToSession(sessionKey, player) {
+    this.sessionSvc.addPlayerToSession(sessionKey, player)
+  }
 
 }
+ 
