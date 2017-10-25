@@ -16,19 +16,21 @@ export class PlayerService {
     private runSvc: RunService
   ) { }
 
-  getAllPlayers() {
-    const players$ = this.db.list('playerData/players');
-    return players$;
+  getPlayers() {
+    return this.db.list('playerData/players');
   }
 
   savePlayer(playerData) {
     console.log(playerData);
     const playerToSave = {
       name: playerData.name,
-      score: 0
+      score: 0,
+      totalGames: 0,
+      totalWins: 0
     }
-    this.getAllPlayers().push(playerToSave);
+    this.getPlayers().push(playerToSave);
   }  
+// ----------------------------------------
   
   getPlayerByKey(playerKey) {
     const player$ = this.db.object(`playerData/players/${playerKey}`);

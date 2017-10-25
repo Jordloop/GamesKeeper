@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { PlayerService } from '../../services/player/player.service';
 
 @Component({
   selector: 'app-player-form',
@@ -7,9 +9,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayerFormComponent implements OnInit {
 
-  constructor() { }
+  playerForm = new FormGroup({
+    name: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(20)
+    ]),
+    score: new FormControl('0'),
+    totalSessionsPlayed: new FormControl('0'),
+    totalSessionsWon: new FormControl('0')
+  });
+  useForm: boolean = false;
 
+  constructor(private playerSvc: PlayerService) { }
+  
   ngOnInit() {
+  }
+
+  formToggle() {
+    this.useForm = !this.useForm;
+  }
+
+  createPlayer() {
+    const playerData = this.playerForm.value;
+    this.playerSvc.savePlayer(playerData);
+    this.useForm = false;
+  }
+
+  get name() {
+    return this.playerForm.get('name');
   }
 
 }

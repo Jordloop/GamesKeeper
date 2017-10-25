@@ -2,4 +2,20 @@
   <p>
     player-form works!
   </p>
+  <p (click)="formToggle()">Create Player</p>
+  <div *ngIf="useForm">
+    <form [formGroup]="playerForm" (ngSubmit)="createPlayer()">
+      <label for="name">Name</label>
+      <input required minlength="3" maxlength="20" formControlName="name" id="name" type="text">
+      <div *ngIf="name.touched && name.invalid" class="alert">
+        <div *ngIf="name.errors.required">Name is required.</div>
+        <div *ngIf="name.errors.minlength">Name must be minimum {{ name.errors.minlength.requiredLength }} characters.</div>
+        <div *ngIf="name.errors.maxlength">The name cannot by more than {{ name.errors.maxlength.requiredLength }} characters.</div>
+      </div>
+      <input hidden formControlName="score" id="score" type="number">
+      <input hidden formControlName="totalSessionsPlayed" id="totoallSessionsPlayed" type="number">
+      <input hidden formControlName="totalSessionsWon" id="totalSessionsWon" type="number">
+      <button type="submit">Create Player</button>
+    </form>
+  </div>
 </div>
