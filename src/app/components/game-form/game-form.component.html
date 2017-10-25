@@ -2,7 +2,7 @@
   <p>
     game-form works!
   </p>
-  <p (click)="useFormToggle()">Create Game</p>
+  <p (click)="formToggle()">Create Game</p>
   <div *ngIf="useForm">
     <form [formGroup]="gameForm" (ngSubmit)="createGame()">
       <label for="name">Name</label>

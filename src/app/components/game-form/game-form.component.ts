@@ -24,7 +24,7 @@ export class GameFormComponent implements OnInit {
   ngOnInit() {
   }
   
-  useFormToggle() {
+  formToggle() {
     this.useForm = !this.useForm;
   }
 
