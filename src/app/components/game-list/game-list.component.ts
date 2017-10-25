@@ -21,8 +21,7 @@ export class GameListComponent implements OnInit {
   }
 
   gameClicked(gameKey) {
-    this.getGameByKey(gameKey);
-    this.gameSvc.navigateToSessionSetup(this.game.name);
+    this.gameSvc.navigateToSessionSetup(gameKey);
   }
 
   getGames() {
@@ -30,14 +29,6 @@ export class GameListComponent implements OnInit {
       if (games)
         this.games = games;
       console.log('onInit, games:', this.games);
-    });
-  }
-
-  getGameByKey(gameKey) {
-    this.gameSvc.getGameByKey(gameKey).subscribe(game => {
-      if(game)
-        this.game = game;
-        console.log(`onClick, game: ${gameKey}`, this.game);
     });
   }
 
