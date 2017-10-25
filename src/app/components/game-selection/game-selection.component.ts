@@ -18,18 +18,8 @@ export class GameSelectionComponent implements OnInit {
   constructor(private gameSvc: GameService) { }
 
   ngOnInit() {
-    // this.gameSvc.getGameByKey(this.gameKey).subscribe(game => {
-    //   if(game)
-    //     this.game = game
-    // })
-    // this.gameSvc.getGames().subscribe(games => {
-    //   this.games = games;
-    //   if(games)
-    //     console.log(this.games);  
-    // })
-    // console.log('gameData component', this.gameData);    
-    // this.gameSvc.saveGame(this.gameData);
-  }
+      
+      }
 
 
 }
