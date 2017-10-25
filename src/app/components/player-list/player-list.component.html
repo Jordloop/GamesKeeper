@@ -1,8 +1,6 @@
 <div id="component-container">
-  <p>
-    player-list works!
-  </p>
   <div *ngFor="let player of players" (click)="playerClicked(player)">
-    <pre>{{player | json}}</pre>
+      <h4>{{player.name}}</h4>
   </div>
+  <!-- <pre>{{players | json}}</pre> -->
 </div>

@@ -1,7 +1,4 @@
 <div id="component-container">  
-  <p>
-    player-form works!
-  </p>
   <p (click)="formToggle()">Create Player</p>
   <div *ngIf="useForm">
     <form [formGroup]="playerForm" (ngSubmit)="createPlayer()">

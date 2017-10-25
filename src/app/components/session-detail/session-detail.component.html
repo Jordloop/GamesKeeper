@@ -1,9 +1,9 @@
 <div id="component-container">
-  <p>
-    session-detail works!
-  </p>
+  <h2>Game: {{session.gameName}}</h2>
+  <h5>Players:</h5>
   <div *ngFor="let player of sessionPlayers">
-    {{player | json}}
+    <h4>{{player.name}}: {{player.score}} points</h4>
+    
   </div>
   <!-- <pre>{{session | json}}</pre> -->
 </div>

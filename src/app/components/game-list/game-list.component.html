@@ -1,8 +1,7 @@
 <div id="component-container">
-  <p>
-    game-list works!
-  </p>
+  <h2>Games:</h2>
   <div *ngFor="let game of games" (click)="gameClicked(game.$key)">
-    {{game | json}}
+    <h4>{{game.name}}</h4>
+    <!-- {{game | json}} -->
   </div>
 </div>
