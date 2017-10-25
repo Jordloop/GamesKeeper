@@ -8,7 +8,6 @@ import { GameService } from '../../services/game/game.service';
   styleUrls: ['./game-form.component.css']
 })
 export class GameFormComponent implements OnInit {
-
   gameForm = new FormGroup({
     name: new FormControl('', [
       Validators.required,
@@ -17,6 +16,7 @@ export class GameFormComponent implements OnInit {
     ]),
     sessionsCount: new FormControl('0')
   });
+  useForm: boolean = false;
 
   
   constructor(private gameSvc: GameService) { }
@@ -24,9 +24,14 @@ export class GameFormComponent implements OnInit {
   ngOnInit() {
   }
   
+  useFormToggle() {
+    this.useForm = !this.useForm;
+  }
+
   createGame() {
     const formData = this.gameForm.value;
     this.gameSvc.saveGame(formData);
+    this.useForm = false;
   }
 
   get name() {

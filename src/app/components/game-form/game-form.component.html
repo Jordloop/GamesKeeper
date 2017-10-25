@@ -2,25 +2,19 @@
   <p>
     game-form works!
   </p>
-  <form [formGroup]="gameForm" (ngSubmit)="createGame()">
-    <label for="name">Name</label>
-    <input
-        required
-        minlength="3"
-        maxlength="20"
-        formControlName="name"
-        id="name"
-        type="text">
-        <div *ngIf="name.touched && name.invalid" class="alert">
-          <div *ngIf="name.errors.required">Name is required.</div>
-          <div *ngIf="name.errors.minlength">Name must be minimum {{ name.errors.minlength.requiredLength }} characters.</div>
-          <div *ngIf="name.errors.maxlength">The name cannot by more than {{ name.errors.maxlength.requiredLength }} characters.</div>
-        </div>
-    <input
-        hidden
-        formControlName="sessionsCount"
-        id="sessionsCount"
-        type="number">
-    <button type="submit">Create Game</button>
-  </form>
+  <p (click)="useFormToggle()">Create Game</p>
+  <div *ngIf="useForm">
+    <form [formGroup]="gameForm" (ngSubmit)="createGame()">
+      <label for="name">Name</label>
+      <input required minlength="3" maxlength="20" formControlName="name" id="name" type="text">
+      <div *ngIf="name.touched && name.invalid" class="alert">
+        <div *ngIf="name.errors.required">Name is required.</div>
+        <div *ngIf="name.errors.minlength">Name must be minimum {{ name.errors.minlength.requiredLength }} characters.</div>
+        <div *ngIf="name.errors.maxlength">The name cannot by more than {{ name.errors.maxlength.requiredLength }} characters.</div>
+      </div>
+      <input hidden formControlName="sessionsCount" id="sessionsCount" type="number">
+      <button type="submit">Create Game</button>
+    </form>
+  </div>
 </div>
+
