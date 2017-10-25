@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { GameService } from '../../services/game/game.service';
 
 @Component({
   selector: 'app-game-form',
@@ -17,17 +18,19 @@ export class GameFormComponent implements OnInit {
     sessionsCount: new FormControl('0')
   });
 
-  get name() {
-    return this.gameForm.get('name');
-  }
-
-  constructor() { }
-
+  
+  constructor(private gameSvc: GameService) { }
+  
   ngOnInit() {
   }
-
+  
   createGame() {
-    console.log(this.gameForm.value);
+    const formData = this.gameForm.value;
+    this.gameSvc.saveGame(formData);
+  }
+
+  get name() {
+    return this.gameForm.get('name');
   }
 
 }
