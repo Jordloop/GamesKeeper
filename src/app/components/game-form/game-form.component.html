@@ -2,7 +2,7 @@
   <p>
     game-form works!
   </p>
-  <form [formGroup]="gameForm">
+  <form [formGroup]="gameForm" (ngSubmit)="createGame()">
     <label for="name">Name</label>
     <input
         required
@@ -16,13 +16,10 @@
           <div *ngIf="name.errors.minlength">Name must be minimum {{ name.errors.minlength.requiredLength }} characters.</div>
           <div *ngIf="name.errors.maxlength">The name cannot by more than {{ name.errors.maxlength.requiredLength }} characters.</div>
         </div>
-    <input  
+    <input
         hidden
-        required
-        pattern="0"
         formControlName="sessionsCount"
         id="sessionsCount"
-        value="0"
         type="number">
     <button type="submit">Create Game</button>
   </form>

@@ -14,7 +14,7 @@ export class GameFormComponent implements OnInit {
       Validators.minLength(3),
       Validators.maxLength(20)
     ]),
-    sessionsCount: new FormControl()
+    sessionsCount: new FormControl('0')
   });
 
   get name() {
@@ -24,6 +24,10 @@ export class GameFormComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  createGame() {
+    console.log(this.gameForm.value);
   }
 
 }
