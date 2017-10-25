@@ -22,11 +22,7 @@ export class GameListComponent implements OnInit {
 
   gameClicked(gameKey) {
     this.getGameByKey(gameKey);
-    this.goToGameDetail(this.game.name);
-  }
-  
-  goToGameDetail(gameKey) {
-    this.router.navigate(['setup', gameKey]);
+    this.gameSvc.navigateToSessionSetup(this.game.name);
   }
 
   getGames() {
