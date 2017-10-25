@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class GameListComponent implements OnInit {
   games: object[];
-  game: object;
+  game;
 
   constructor(
     private router: Router,
@@ -21,7 +21,8 @@ export class GameListComponent implements OnInit {
   }
 
   gameClicked(gameKey) {
-    this.goToGameDetail(gameKey);
+    this.getGameByKey(gameKey);
+    this.goToGameDetail(this.game.name);
   }
   
   goToGameDetail(gameKey) {
