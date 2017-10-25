@@ -33,8 +33,8 @@ export class GameService {
       return this.db.object(`gameData/games/${gameKey}`);
     }
     
-    navigateToSessionSetup(gameName: any) {
-      this.router.navigate([gameName, 'setup']);
+    navigateToSessionSetup(gameKey: any) {
+      this.router.navigate(['setup', gameKey]);
     }
 
 }

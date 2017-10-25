@@ -16,7 +16,7 @@ const appRoutes: Routes = [
         component: ScorecardComponent
     },
     {
-        path: ':id/setup',
+        path: 'setup/:id',
         component: SessionSetupComponent
     }
 ];
