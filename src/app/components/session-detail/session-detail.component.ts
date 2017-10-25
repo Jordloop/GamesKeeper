@@ -12,6 +12,7 @@ export class SessionDetailComponent implements OnInit {
 
   sessionKey: string = null;
   session;
+  sessionPlayers: object[];
 
   constructor(
     private route: ActivatedRoute,
@@ -22,6 +23,7 @@ export class SessionDetailComponent implements OnInit {
   ngOnInit() {
     this.getSessionKeyByRoute();
     this.getSessionByKey(this.sessionKey);
+    this.getPlayersPerSession(this.sessionKey);
   }
 
   getSessionKeyByRoute() {
@@ -29,15 +31,18 @@ export class SessionDetailComponent implements OnInit {
       if (param)
         this.sessionKey = (param['id']);
     });
-    console.log('onInit, sessionKey:', this.sessionKey);
   }
 
   getSessionByKey(sessionKey) {
     this.sessionSvc.getSessionByKey(sessionKey).subscribe(session => {
       if (session)
         this.session = session;
-      console.log(`onInit, session: ${sessionKey}`, this.session);
     });
   }
 
+  getPlayersPerSession(sessionKey) {
+    this.sessionSvc.getPlayersPerSession(sessionKey).subscribe(players => {
+      this.sessionPlayers = players;
+    })
+  }
 }

@@ -2,5 +2,8 @@
   <p>
     session-detail works!
   </p>
-  <pre>{{session | json}}</pre>
+  <div *ngFor="let player of sessionPlayers">
+    {{player | json}}
+  </div>
+  <!-- <pre>{{session | json}}</pre> -->
 </div>
