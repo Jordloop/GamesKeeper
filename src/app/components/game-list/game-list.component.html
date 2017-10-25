@@ -2,7 +2,7 @@
   <p>
     game-list works!
   </p>
-  <div *ngFor="let game of games">
+  <div *ngFor="let game of games" (click)="getGameByKey(game.$key)">
     {{game | json}}
   </div>
 </div>

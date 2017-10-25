@@ -8,14 +8,28 @@ import { GameService } from '../../services/game/game.service';
 })
 export class GameListComponent implements OnInit {
   games: object[];
+  game: object;
   constructor(private gameSvc: GameService) { }
 
   ngOnInit() {
-      this.gameSvc.getGames().subscribe(games => {
-      this.games = games;
-      if(games)
-        console.log(this.games);  
-    })
+    this.getGames();
+  }
+  
+
+  getGameByKey(gameKey) {
+    this.gameSvc.getGameByKey(gameKey).subscribe(game => {
+      if(game)
+        this.game = game;
+        console.log(`onClick, game: ${gameKey}`, this.game);
+    });
+  }
+
+  getGames() {
+    this.gameSvc.getGames().subscribe(games => {
+      if (games)
+        this.games = games;
+      console.log('onInit, games:', this.games);
+    });
   }
 
 }
