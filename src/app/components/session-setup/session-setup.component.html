@@ -3,6 +3,7 @@
     session-setup works!
   </p>
   <app-session-detail></app-session-detail>
-  <app-player-list></app-player-list>
+  <app-player-list [players]="players" [sessionKey]="sessionKey"></app-player-list>
   <app-player-form></app-player-form>
+  <button (click)="buttonClicked()">Start</button>
 </div>

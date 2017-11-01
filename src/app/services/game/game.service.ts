@@ -25,7 +25,6 @@ export class GameService {
       name: gameData.name,
       sessionsCount: gameData.sessionsCount
     }
-    console.log('saveGame service', gameToSave);
     this.getGames().push(gameData);
     } 
 
@@ -33,10 +32,4 @@ export class GameService {
       return this.db.object(`gameData/games/${gameKey}`);
     }
     
-    navigateToSessionSetup(game: any, session: any) {
-      console.log(session);
-      
-      this.router.navigate(['setup', game.name]);
-    }
-
 }

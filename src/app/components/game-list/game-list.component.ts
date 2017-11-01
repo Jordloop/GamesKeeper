@@ -50,14 +50,12 @@ export class GameListComponent implements OnInit {
       gameKey: gameObj.$key,
       gameName: gameObj.name
     }
-    console.log(sessionToSave.gameName);
-    
     const newSessionKey = this.sessionSvc.saveSession(sessionToSave);
     this.navigateToSessionSetup(newSessionKey);
   }
 
-  navigateToSessionSetup(gameKey: any) {
-    this.router.navigate(['session_setup', gameKey]);
+  navigateToSessionSetup(sessionKey: any) {
+    this.router.navigate(['session_setup', sessionKey]);
   }
 
 }
