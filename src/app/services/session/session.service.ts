@@ -56,22 +56,9 @@ export class SessionService {
     })
   }
 
-
-
-  // getBookmarksByUserKey(sessionKey) {
-  //   return this.db.list(`sessionData/sessions/${sessionKey}/players`)
-  //     .map(players => {
-  //       return player.map(player => this.db.object(`articleData/articles/${article.$key}`));
-  //     })
-  //     .flatMap(firebaseObjectObservables => {
-  //       return Observable.combineLatest(firebaseObjectObservables)
-  //     });
-  // }
   getPlayersBySessionKey(sessionKey) {
     return this.db.list(`sessionData/sessions/${sessionKey}/players/`)
       .map(players => {
-        console.log('service players',players);
-        
         return players.map(player => this.db.object(`playerData/players/${player.$key}`));
       })
       .flatMap(firebaseObjectObservables => {

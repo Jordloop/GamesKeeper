@@ -24,8 +24,6 @@ export class SessionDetailComponent implements OnInit {
     this.getSessionKeyByRoute();
     this.getSessionByKey(this.sessionKey);
     this.getPlayersPerSession(this.sessionKey);
-    console.log('sessionKey', this.sessionKey);
-    
   }
 
   getSessionKeyByRoute() {
@@ -44,9 +42,7 @@ export class SessionDetailComponent implements OnInit {
 
   getPlayersPerSession(sessionKey) {
     this.sessionSvc.getPlayersBySessionKey(sessionKey).subscribe(players => {
-      console.log('playerSub',players);
-      
-      this.sessionPlayers = players;
+    this.sessionPlayers = players;
     })
   }
 }
