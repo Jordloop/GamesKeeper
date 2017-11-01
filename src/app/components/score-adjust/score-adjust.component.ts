@@ -15,7 +15,7 @@ export class ScoreAdjustComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.getPlayerByKey();
+    this.getPlayerByKey();
     console.log('player',this.playerKey);
     
   }
