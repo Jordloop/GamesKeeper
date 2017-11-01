@@ -23,7 +23,7 @@ import { SessionSetupComponent } from './components/session-setup/session-setup.
 import { PlayerFormComponent } from './components/player-form/player-form.component';
 import { GameDetailComponent } from './components/game-detail/game-detail.component';
 import { SessionDetailComponent } from './components/session-detail/session-detail.component';
-import { ScoreAdjustComponent } from './score-adjust/score-adjust.component';
+import { ScoreAdjustComponent } from './components/score-adjust/score-adjust.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
