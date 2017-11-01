@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
+// import 'rxjs/add/operator/map';
+import { PlayerService } from '../../services/player/player.service';
+
+import { Observable, Subject, BehaviorSubject } from 'rxjs/Rx';
+
 
 @Injectable()
 export class SessionService {
 
   constructor(
+    private playerSvc: PlayerService,
     private db: AngularFireDatabase,
     private router: Router
   ) { }
@@ -25,11 +31,52 @@ export class SessionService {
   }
 
   addPlayerToSession(sessionKey, player) {
-    this.getPlayersPerSession(sessionKey).push(player);
+    const playerToAdd = {
+      playerName: player.name,
+      playerScore: player.score,
+      totalGames: player.totaleGames,
+      totalWins: player.totalWins
+    }
+    const playerKey = player.$key; 
+    this.db.object(`sessionData/sessions/${sessionKey}/players/${player.$key}`).set(true)
+  }
+
+  playersPerSessionRef(sessionKey) {
+    return this.db.list(`sessionData/sessions/${sessionKey}/players`);
   }
 
   getPlayersPerSession(sessionKey) {
-    return this.db.list(`sessionData/sessions/${sessionKey}/players`)
+    return this.playersPerSessionRef(sessionKey).map(players => {
+      return players.map(playerKey => {
+        let player = this.playerSvc.getPlayerByKey(playerKey.$key);
+        console.log(player);
+        return player
+
+      })
+    })
+  }
+
+
+
+  // getBookmarksByUserKey(sessionKey) {
+  //   return this.db.list(`sessionData/sessions/${sessionKey}/players`)
+  //     .map(players => {
+  //       return player.map(player => this.db.object(`articleData/articles/${article.$key}`));
+  //     })
+  //     .flatMap(firebaseObjectObservables => {
+  //       return Observable.combineLatest(firebaseObjectObservables)
+  //     });
+  // }
+  getPlayersBySessionKey(sessionKey) {
+    return this.db.list(`sessionData/sessions/${sessionKey}/players/`)
+      .map(players => {
+        console.log('service players',players);
+        
+        return players.map(player => this.db.object(`playerData/players/${player.$key}`));
+      })
+      .flatMap(firebaseObjectObservables => {
+        return Observable.combineLatest(firebaseObjectObservables)
+      });
   }
 
   getSessionByKey(sessionKey) {

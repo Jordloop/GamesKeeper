@@ -30,12 +30,11 @@ export class PlayerService {
     }
     this.getPlayers().push(playerToSave);
   }  
-// ----------------------------------------
   
   getPlayerByKey(playerKey) {
-    const player$ = this.db.object(`playerData/players/${playerKey}`);
-    return player$;
+    return this.db.object(`playerData/players/${playerKey}`);
   }
+// ----------------------------------------
 
 
   navigateToPlayerDetail(playerKey: any) {
