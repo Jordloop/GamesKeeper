@@ -8,11 +8,11 @@ import { SessionSetupComponent } from './components/session-setup/session-setup.
 
 const appRoutes: Routes = [
     {
-        path: 'game_selection',
+        path: '',
         component: GameSelectionComponent
     },
     {
-        path: 'scorecard',
+        path: 'scorecard/:id',
         component: ScorecardComponent
     },
     {
