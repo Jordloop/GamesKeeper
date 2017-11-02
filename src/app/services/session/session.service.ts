@@ -56,9 +56,9 @@ export class SessionService {
   //     });
   // }
 
-  // getSessionByKey(sessionKey) {
-  //   return this.db.object(`sessionData/sessions/${sessionKey}`);
-  // }
+  getSessionByKey(sessionKey) {
+    return this.db.object(`sessionData/sessions/${sessionKey}`);
+  }
 
   incrementPlayerScore(sessionKey, player) {
     const newScore = player.score + 1;
