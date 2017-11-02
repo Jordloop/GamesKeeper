@@ -11,6 +11,7 @@ import { SessionService } from '../../services/session/session.service';
 export class ScoreAdjustComponent implements OnInit {
   @Input() player;
   @Input() sessionKey;
+  scoreIsZeroOrGreater: boolean;
   // player: object;
 
   constructor(
@@ -19,22 +20,32 @@ export class ScoreAdjustComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.player);
+    this.scoreGreaterThanZeroCheck(this.player);
     
     // this.getPlayerByKey();
     
   }
 
   incrementScore(player) {
-    console.log(player);
     this.sessionSvc.incrementPlayerScore(this.sessionKey, player);
+    this.scoreGreaterThanZeroCheck(player);
+    console.log(this.scoreIsZeroOrGreater);
+    
   }
 
   decrementScore(player) {
-    console.log(player);
     this.sessionSvc.decrementPlayerScore(this.sessionKey, player);
+    this.scoreGreaterThanZeroCheck(player);
+    console.log(this.scoreIsZeroOrGreater);
+    
   }
 
+  scoreGreaterThanZeroCheck(player) {
+    if (player.score <= 0)
+      this.scoreIsZeroOrGreater = false;
+    else
+      this.scoreIsZeroOrGreater = true;
+  }
   // getPlayerByKey() {
   // this.playerSvc.getPlayerByKey(this.player.$key).subscribe(player => {
   //   if(player)
