@@ -6,7 +6,9 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FirebaseApp } from 'angularfire2';
 import { routing } from './app.routing';
+//Angular Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material';
 //Services
 import { GameService } from './services/game/game.service';
 import { PlayerService } from './services/player/player.service';
@@ -46,7 +48,7 @@ export const firebaseConfig = {
     PlayerFormComponent,
     GameDetailComponent,
     SessionDetailComponent,
-    ScoreAdjustComponent
+    ScoreAdjustComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +57,8 @@ export const firebaseConfig = {
     routing,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
 
   providers: [
