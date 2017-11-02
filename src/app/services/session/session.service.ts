@@ -20,7 +20,8 @@ export class SessionService {
   saveSession(game) {
     let sessionToSave = {
       gameKey: game.gameKey,
-      gameName: game.gameName
+      gameName: game.gameName,
+      gameWinner: false
     }
     return this.getSessions().push(sessionToSave).key;
        
@@ -32,44 +33,43 @@ export class SessionService {
 
   addPlayerToSession(sessionKey, player) {
     const playerToAdd = {
-      playerName: player.name,
-      playerScore: player.score,
-      totalGames: player.totaleGames,
-      totalWins: player.totalWins
+      name: player.name,
+      score: 0
     }
-    const playerKey = player.$key; 
-    this.db.object(`sessionData/sessions/${sessionKey}/players/${player.$key}`).set(true)
+
+    this.db.object(`sessionData/sessions/${sessionKey}/players/${player.$key}`).set(playerToAdd)
   }
 
   playersPerSessionRef(sessionKey) {
+    
     return this.db.list(`sessionData/sessions/${sessionKey}/players`);
   }
 
-  getPlayersPerSession(sessionKey) {
-    return this.playersPerSessionRef(sessionKey).map(players => {
-      return players.map(playerKey => {
-        let player = this.playerSvc.getPlayerByKey(playerKey.$key);
-        console.log(player);
-        return player
+      //Works but is not used
+  // getPlayersBySessionKey(sessionKey) {
+  //   return this.db.list(`sessionData/sessions/${sessionKey}/players/`)
+  //     .map(players => {
+  //       return players.map(player => this.db.object(`playerData/players/${player.$key}`));
+  //     })
+  //     .flatMap(firebaseObjectObservables => {
+  //       return Observable.combineLatest(firebaseObjectObservables)
+  //     });
+  // }
 
-      })
-    })
+  // getSessionByKey(sessionKey) {
+  //   return this.db.object(`sessionData/sessions/${sessionKey}`);
+  // }
+
+  incrementPlayerScore(sessionKey, player) {
+    const newScore = player.score + 1;
+    this.db.object(`sessionData/sessions/${sessionKey}/players/${player.$key}`).update({ score: newScore });
   }
 
-  getPlayersBySessionKey(sessionKey) {
-    return this.db.list(`sessionData/sessions/${sessionKey}/players/`)
-      .map(players => {
-        return players.map(player => this.db.object(`playerData/players/${player.$key}`));
-      })
-      .flatMap(firebaseObjectObservables => {
-        return Observable.combineLatest(firebaseObjectObservables)
-      });
+  decrementPlayerScore(sessionKey, player) {
+    const newScore = player.score - 1;
+    this.db.object(`sessionData/sessions/${sessionKey}/players/${player.$key}`).update({ score: newScore });
   }
 
-  getSessionByKey(sessionKey) {
-    return this.db.object(`sessionData/sessions/${sessionKey}`);
-  }
-  
 // -------------------------------------------------------
 
 

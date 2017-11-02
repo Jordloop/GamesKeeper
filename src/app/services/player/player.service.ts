@@ -24,7 +24,6 @@ export class PlayerService {
     console.log(playerData);
     const playerToSave = {
       name: playerData.name,
-      score: 0,
       totalGames: 0,
       totalWins: 0
     }
@@ -39,14 +38,5 @@ export class PlayerService {
     this.router.navigate([`players/${playerKey}`]);
   }
 
-  incrementPlayerScore(player) {
-    const newScore = player.score + 1;
-    this.db.object(`playerData/players/${player.$key}`).update({score: newScore});
-  }
-
-  decrementPlayerScore(player) {
-    const newScore = player.score - 1;
-    this.db.object(`playerData/players/${player.$key}`).update({score: newScore});
-  }
 
 }
