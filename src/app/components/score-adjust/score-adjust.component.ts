@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PlayerService } from '../../services/player/player.service';
+import { SessionService } from '../../services/session/session.service';
 
 
 @Component({
@@ -8,32 +9,37 @@ import { PlayerService } from '../../services/player/player.service';
   styleUrls: ['./score-adjust.component.css']
 })
 export class ScoreAdjustComponent implements OnInit {
-  @Input() playerKey: object;
-  player: object;
+  @Input() player;
+  @Input() sessionKey;
+  // player: object;
 
   constructor(
-    private playerSvc: PlayerService
+    private playerSvc: PlayerService,
+    private sessionSvc: SessionService
   ) { }
 
   ngOnInit() {
-    this.getPlayerByKey();
-    console.log('player',this.playerKey);
+    console.log(this.player);
+    
+    // this.getPlayerByKey();
     
   }
 
   incrementScore(player) {
-    this.playerSvc.incrementPlayerScore(player);
+    console.log(player);
+    this.sessionSvc.incrementPlayerScore(this.sessionKey, player);
   }
 
   decrementScore(player) {
-    this.playerSvc.decrementPlayerScore(player);
+    console.log(player);
+    this.sessionSvc.decrementPlayerScore(this.sessionKey, player);
   }
 
-  getPlayerByKey() {
-  this.playerSvc.getPlayerByKey(this.playerKey).subscribe(player => {
-    if(player)
-      this.player = player;
-  });
-  }
-  
+  // getPlayerByKey() {
+  // this.playerSvc.getPlayerByKey(this.player.$key).subscribe(player => {
+  //   if(player)
+  //     this.player = player;
+  // });
+  // }
+
 }

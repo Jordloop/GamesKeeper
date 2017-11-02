@@ -22,8 +22,14 @@ export class SessionDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getSessionKeyByRoute();
-    this.getSessionByKey(this.sessionKey);
-    this.getPlayersPerSession(this.sessionKey);
+    if(this.sessionKey != null) {
+      console.log('sessionKey', this.sessionKey);
+      
+      this.getSessionByKey(this.sessionKey);
+      this.getPlayersPerSession(this.sessionKey);
+      console.log(this.sessionPlayers);
+    }
+    
   }
 
   getSessionKeyByRoute() {
@@ -41,8 +47,11 @@ export class SessionDetailComponent implements OnInit {
   }
 
   getPlayersPerSession(sessionKey) {
-    this.sessionSvc.getPlayersBySessionKey(sessionKey).subscribe(players => {
-    this.sessionPlayers = players;
+    this.sessionSvc.playersPerSessionRef(sessionKey).subscribe(players => {
+      if(players)
+        this.sessionPlayers = players;
+        console.log(this.sessionPlayers);
+        
     })
   }
 }

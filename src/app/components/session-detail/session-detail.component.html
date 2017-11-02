@@ -3,7 +3,7 @@
   <h5>Players:</h5>
   <div *ngFor="let player of sessionPlayers">
     <h4>{{player.name}}</h4>
-    <app-score-adjust [playerKey]="player.$key"></app-score-adjust>
+    <app-score-adjust [player]="player" [sessionKey]="sessionKey"></app-score-adjust>
     
   </div>
   <!-- <pre>{{session | json}}</pre> -->
