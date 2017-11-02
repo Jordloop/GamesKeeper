@@ -1,2 +1,2 @@
 
-<p><span *ngIf="scoreIsZeroOrGreater" (click)="decrementScore(player)">- </span> {{player.score}} <span (click)="incrementScore(player)"> +</span></p>
+<button mat-mini-fab (click)="decrementScore(player)">-</button> {{player.score}} <button mat-mini-fab (click)="incrementScore(player)">+</button>
