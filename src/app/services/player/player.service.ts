@@ -34,23 +34,19 @@ export class PlayerService {
   getPlayerByKey(playerKey) {
     return this.db.object(`playerData/players/${playerKey}`);
   }
-// ----------------------------------------
-
 
   navigateToPlayerDetail(playerKey: any) {
     this.router.navigate([`players/${playerKey}`]);
   }
 
-    // incrementScore(run, player) {
-    //   const newScore = player.score += 1;
-    //   this.runSvc.updatePlayerInPlayersPerRun(run.$key, player.$key).update({ score: newScore })
-    //   this.runSvc.updatePlayerInRunData(run, player).update({ score: newScore })
-    // }
+  incrementPlayerScore(player) {
+    const newScore = player.score + 1;
+    this.db.object(`playerData/players/${player.$key}`).update({score: newScore});
+  }
 
-    // decrementScore(run, player) {
-    //   const newScore = player.score -= 1;
-    //   this.runSvc.updatePlayerInPlayersPerRun(run.$key, player.$key).update({ score: newScore })
-    //   this.runSvc.updatePlayerInRunData(run, player).update({ score: newScore })
-    // }
+  decrementPlayerScore(player) {
+    const newScore = player.score - 1;
+    this.db.object(`playerData/players/${player.$key}`).update({score: newScore});
+  }
 
 }

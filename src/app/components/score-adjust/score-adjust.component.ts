@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PlayerService } from '../../services/player/player.service';
 
+
 @Component({
   selector: 'app-score-adjust',
   templateUrl: './score-adjust.component.html',
@@ -21,20 +22,18 @@ export class ScoreAdjustComponent implements OnInit {
   }
 
   incrementScore(player) {
-    player.score ++;    
+    this.playerSvc.incrementPlayerScore(player);
   }
 
-
   decrementScore(player) {
-    player.score --;
+    this.playerSvc.decrementPlayerScore(player);
   }
 
   getPlayerByKey() {
   this.playerSvc.getPlayerByKey(this.playerKey).subscribe(player => {
-    if(player) {
+    if(player)
       this.player = player;
-      console.log(this.player);
-    }
   });
   }
+  
 }
