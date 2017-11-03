@@ -1,5 +1,5 @@
 <div id="component-container">
-  <p (click)="formToggle()">Create Game</p>
+  <h4 (click)="formToggle()">Create Game</h4>
   <div *ngIf="useForm">
     <form [formGroup]="gameForm" (ngSubmit)="createGame()">
       <label for="name">Name</label>
