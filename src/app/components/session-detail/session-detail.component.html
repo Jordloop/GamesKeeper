@@ -1,12 +1,11 @@
 <div id="component-container ">
   <mat-card class="session">
-    <mat-card-title>Game: {{session.gameName}}</mat-card-title>
-    <h5>Players:</h5>
+    <mat-card-title>{{session.gameName}}</mat-card-title>
     <mat-card class="players" *ngFor="let player of sessionPlayers">
       <h4>{{player.name}}</h4>
       <app-score-adjust [player]="player" [sessionKey]="sessionKey"></app-score-adjust>
     </mat-card>
   </mat-card>
-  <pre>{{session | json}}</pre>
+  <!-- <pre>{{session | json}}</pre> -->
 </div>
 
