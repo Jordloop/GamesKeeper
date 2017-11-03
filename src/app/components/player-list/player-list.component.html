@@ -1,7 +1,11 @@
 <div id="component-container">
   <p>Player-List</p>
-  <div *ngFor="let player of players" (click)="playerClicked(player)">
-      <h4>{{player.name}}</h4>
-  </div>
-  <!-- <pre>{{players | json}}</pre> -->
+  <mat-card *ngFor="let player of players" (click)="playerClicked(player)">
+      <mat-card-title>{{player.name}}</mat-card-title>
+      <mat-card-subtitle>
+        Games Played: {{player.totalGames}}
+        Games Won: {{player.totalWins}}
+      </mat-card-subtitle>
+      <!-- <pre>{{player | json}}</pre> -->
+  </mat-card>
 </div>
