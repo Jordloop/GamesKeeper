@@ -1,6 +1,6 @@
 <div id="component-container">
   <mat-card class="session">
-<h1>{{session.gameName}}</h1>
+    <h1>{{session.gameName}}</h1>
     <mat-card class="players" *ngFor="let player of sessionPlayers">
       <div class="player-content">
         {{player | json}}
