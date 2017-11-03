@@ -1,6 +1,8 @@
 <div id="component-container">
-  <h2>Games:</h2>
-  <mat-card  *ngFor="let game of games" >
+  <div *ngIf="noGames">
+    <h3>No games, add one!</h3>
+  </div>
+  <mat-card  *ngFor="let game of games" class="game">
     <mat-card-title (click)="gameClicked(game.$key)">{{game.name}}</mat-card-title>
     <mat-card-subtitle>Times Played: {{game.sessionsCount}}</mat-card-subtitle>
     <!-- {{game | json}} -->

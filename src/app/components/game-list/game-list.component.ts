@@ -11,6 +11,7 @@ import { SessionService } from '../../services/session/session.service';
 export class GameListComponent implements OnInit {
   games: object[];
   game;
+  noGames: boolean;
 
   constructor(
     private router: Router,
@@ -20,22 +21,36 @@ export class GameListComponent implements OnInit {
 
   ngOnInit() {
     this.getGames();
+    if(this.games){
+      console.log(this.games);      
+      // this.noGamesCheck();
+    }
+
+  }
+
+  noGamesCheck() {
+    if(this.games.length <= 0)
+      this.noGames = true;
+    else 
+      this.noGames = false;
+
   }
 
   gameClicked(gameKey) {
      this.getGameByKey(gameKey);
      this.saveSession(this.game);
-     
-    //  this.gameSvc.navigateToSessionSetup(this.game, savedSession);
     
   }
 
   getGames() {
     this.gameSvc.getGames().subscribe(games => {
-      if (games)
+      if (games){
         this.games = games;
-      // console.log('onInit, games:', this.games);
+        this.noGamesCheck();
+        // console.log('onInit, games:', this.games);
+      }
     });
+
   }
 
   getGameByKey(gameKey) {
@@ -43,6 +58,7 @@ export class GameListComponent implements OnInit {
       if (game)
         this.game = game;
     });
+
   }
 
     saveSession(gameObj) {
@@ -52,10 +68,12 @@ export class GameListComponent implements OnInit {
     }
     const newSessionKey = this.sessionSvc.saveSession(sessionToSave);
     this.navigateToSessionSetup(newSessionKey);
+
   }
 
   navigateToSessionSetup(sessionKey: any) {
     this.router.navigate(['session_setup', sessionKey]);
+    
   }
 
 }
