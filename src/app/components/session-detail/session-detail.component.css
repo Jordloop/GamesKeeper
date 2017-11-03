@@ -12,3 +12,11 @@
 p {
     padding: 5px
 }
+
+.session {
+    background-color: whitesmoke;
+}
+
+.players {
+    margin: 10px;
+}
