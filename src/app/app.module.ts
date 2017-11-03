@@ -8,7 +8,7 @@ import { FirebaseApp } from 'angularfire2';
 import { routing } from './app.routing';
 //Angular Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCardModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatIconModule } from '@angular/material';
 //Services
 import { GameService } from './services/game/game.service';
 import { PlayerService } from './services/player/player.service';
@@ -59,7 +59,8 @@ export const firebaseConfig = {
     AngularFireDatabaseModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule
   ],
 
   providers: [
