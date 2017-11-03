@@ -29,6 +29,7 @@ export class SessionService {
 
   getSessions() {
     return this.db.list('sessionData/sessions');
+    
   }
 
   addPlayerToSession(sessionKey, player) {
@@ -36,27 +37,31 @@ export class SessionService {
       name: player.name,
       score: 0
     }
-
     this.db.object(`sessionData/sessions/${sessionKey}/players/${player.$key}`).set(playerToAdd)
+
   }
 
   playersPerSessionRef(sessionKey) {
     
     return this.db.list(`sessionData/sessions/${sessionKey}/players`);
+
   }
   
   getSessionByKey(sessionKey) {
     return this.db.object(`sessionData/sessions/${sessionKey}`);
+
   }
   
   incrementPlayerScore(sessionKey, player) {
     const newScore = player.score + 1;
     this.db.object(`sessionData/sessions/${sessionKey}/players/${player.$key}`).update({ score: newScore });
+
   }
   
   decrementPlayerScore(sessionKey, player) {
     const newScore = player.score - 1;
     this.db.object(`sessionData/sessions/${sessionKey}/players/${player.$key}`).update({ score: newScore });
+
   }
 
       //Works but is not used
@@ -68,5 +73,6 @@ export class SessionService {
   //     .flatMap(firebaseObjectObservables => {
   //       return Observable.combineLatest(firebaseObjectObservables)
   //     });
+  // 
   // }
 }
