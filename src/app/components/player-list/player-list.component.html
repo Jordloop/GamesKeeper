@@ -1,10 +1,10 @@
 <div id="component-container">
   <p>Player-List</p>
-  <mat-card *ngFor="let player of players" (click)="playerClicked(player)">
-      <mat-card-title>{{player.name}}</mat-card-title>
+  <mat-card class="player" *ngFor="let player of players" (click)="playerClicked(player)">
+      <h2>{{player.name}}</h2>
       <mat-card-subtitle>
-        Games Played: {{player.totalGames}}
-        Games Won: {{player.totalWins}}
+        Played: {{player.totalGames}}
+        Won: {{player.totalWins}}
       </mat-card-subtitle>
       <!-- <pre>{{player | json}}</pre> -->
   </mat-card>

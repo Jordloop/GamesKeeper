@@ -1,11 +1,7 @@
 #component-container {
-    width: 75%;
-    height: auto;
     margin: 0 auto;
     padding: 10px;
-    position: relative;
     background-color: #2196F3;
-    text-align: center;
 }
 
 p {
