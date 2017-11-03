@@ -1,0 +1,11 @@
+.component-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+        /* There is probably a better way to fix the alignment */
+    margin: 5px;
+    margin-bottom: 10px;
+}
