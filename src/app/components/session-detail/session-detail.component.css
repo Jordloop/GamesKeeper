@@ -1,13 +1,13 @@
-/* #component-container {
-    width: 75%;
+#component-container {
+    /* width: 75%;
     height: auto;
     margin: 0 auto;
     padding: 10px;
     position: relative;
     background-color: blanchedalmond;
     border: 1px solid black;
-    text-align: center;
-} */
+    text-align: center; */
+}
 
 p {
     padding: 5px
@@ -20,4 +20,14 @@ p {
 .players {
     margin: 10px;
     background-color: #E3F2FD;
+}
+
+.player-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-name {
+    margin: 20px;
 }
