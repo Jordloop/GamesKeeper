@@ -1,12 +1,15 @@
 #component-container {
-    width: 75%;
-    height: 100%;
-    margin: 0 auto;
-    padding: 40px;
-    position: relative;
-    background-color: whitesmoke;
-    border: 1px solid black;
-    text-align: center;
+    background-color: #2196F3;
+    display: flex;
+    align-items: center;
+}
+
+.player-side {
+    width: 50%;    
+}
+
+.game-side {
+    width: 50%;        
 }
 
 p {

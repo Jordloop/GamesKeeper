@@ -34,6 +34,8 @@ export class SessionSetupComponent implements OnInit {
     this.playerSvc.getPlayers().subscribe(players => {
       if (players)
         this.players = players;
+        console.log('players:',this.players);
+        
     })
   }
 

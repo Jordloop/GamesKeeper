@@ -11,8 +11,8 @@ import { SessionService } from '../../services/session/session.service';
 export class SessionDetailComponent implements OnInit {
 
   sessionKey: string = null;
+  sessionPlayers: object[] = null;
   session;
-  sessionPlayers: object[];
 
   constructor(
     private route: ActivatedRoute,
@@ -27,7 +27,8 @@ export class SessionDetailComponent implements OnInit {
       
       this.getSessionByKey(this.sessionKey);
       this.getPlayersPerSession(this.sessionKey);
-      console.log(this.sessionPlayers);
+      // if(this.sessionPlayers != null)
+        console.log(this.sessionPlayers);
     }
     
   }
@@ -48,9 +49,8 @@ export class SessionDetailComponent implements OnInit {
 
   getPlayersPerSession(sessionKey) {
     this.sessionSvc.playersPerSessionRef(sessionKey).subscribe(players => {
-      if(players)
-        this.sessionPlayers = players;
-        console.log(this.sessionPlayers);
+      this.sessionPlayers = players;
+      console.log('sessionPlayers',this.sessionPlayers);
         
     })
   }

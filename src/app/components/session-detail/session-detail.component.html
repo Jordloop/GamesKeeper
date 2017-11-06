@@ -3,7 +3,7 @@
     <h1>{{session.gameName}}</h1>
     <mat-card class="players" *ngFor="let player of sessionPlayers">
       <div class="player-content">
-        {{player | json}}
+        <!-- {{player | json}} -->
         <h2 class="player-name">{{player.name}}</h2>
         <h1>{{player.score}}</h1>
         <app-score-adjust [player]="player" [sessionKey]="sessionKey"></app-score-adjust>
