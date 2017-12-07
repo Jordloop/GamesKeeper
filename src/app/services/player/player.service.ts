@@ -25,7 +25,8 @@ export class PlayerService {
     const playerToSave = {
       name: playerData.name,
       totalGames: 0,
-      totalWins: 0
+      totalWins: 0,
+      score: 0
     }
     this.getPlayers().push(playerToSave);
   }  
