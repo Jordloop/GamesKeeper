@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PlayerService } from '../../services/player/player.service';
 
 @Component({
   selector: 'app-scorecard',
@@ -6,21 +7,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./scorecard.component.css']
 })
 export class ScorecardComponent implements OnInit {
+  availablePlayers: object[] = null;
+  players: object[] = [{ name: "", score: 0}];
 
-  players: object[] = [
-    {
-      name: "Jordan",
-      score: 0
-    },    
-    {
-      name: "Katie",
-      score: 0
-    }
-  ];
-
-  constructor() { }
+  constructor(public plrSvc: PlayerService) { }
 
   ngOnInit() {
+    this.getPlayers();
+  }
+
+  getPlayers() {
+    this.plrSvc.getPlayers().subscribe(players => {
+      if(players) {
+        this.availablePlayers = players;
+        console.log(this.availablePlayers);
+        
+      }
+    })
+  }
+
+  addPlayer() {
+    const newPlayer = {name: "", score: 0};
+    this.players.push(newPlayer);
   }
 
 }
