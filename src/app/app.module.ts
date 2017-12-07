@@ -9,11 +9,11 @@ import { routing } from './app.routing';
 //Angular Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule,
-  MatCardModule,
-  MatIconModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatSelectModule } from '@angular/material';
+          MatCardModule,
+          MatIconModule,
+          MatFormFieldModule,
+          MatInputModule,
+          MatSelectModule } from '@angular/material';
 //Services
 import { GameService } from './services/game/game.service';
 import { PlayerService } from './services/player/player.service';
