@@ -1,4 +1,21 @@
 <div id="component-container">
-
-
+  <div class="player" *ngFor="let player of players">
+    <div class="player-name">
+      <mat-form-field>      
+        <mat-select>
+            <mat-option *ngFor="let player of availablePlayers" [value]="player.name">
+              {{ player.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="player-score">
+        <button mat-button class="increment-score">+</button>        
+        <mat-form-field>
+          <input matInput placeholder="{{player.score}}">
+        </mat-form-field>
+        <button mat-button class="decrement-score">+</button>
+      </div>
+  </div>
+  <h1 (click)="addPlayer()">Add player</h1>
 </div>
