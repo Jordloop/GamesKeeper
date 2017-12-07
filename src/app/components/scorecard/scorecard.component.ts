@@ -7,6 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScorecardComponent implements OnInit {
 
+  players: object[] = [
+    {
+      name: "Jordan",
+      score: 0
+    },    
+    {
+      name: "Katie",
+      score: 0
+    }
+  ];
+
   constructor() { }
 
   ngOnInit() {
