@@ -2,20 +2,21 @@
   <div class="player" *ngFor="let player of players">
     <div class="player-name">
       <mat-form-field>      
-        <mat-select>
-            <mat-option *ngFor="let player of availablePlayers" [value]="player.name">
-              {{ player.name }}
+        <mat-select placeholder="{{player.name}}">
+            <mat-option *ngFor="let avaliablePlayer of availablePlayers" (click)="setPlayerName(player, $event.path[0].innerText)" [value]="player.name">
+              {{ avaliablePlayer.name }}
             </mat-option>
           </mat-select>
         </mat-form-field>
       </div>
       <div class="player-score">
-        <button mat-button class="increment-score">+</button>        
+        <button (click)="decrementScore(player)" mat-button class="increment-score">-</button>        
         <mat-form-field>
-          <input matInput placeholder="{{player.score}}">
+          <input (keydown.enter)="adjustScore(player, $event)" matInput value="{{player.score}}">
         </mat-form-field>
-        <button mat-button class="decrement-score">+</button>
+        <button (click)="incrementScore(player)" mat-button class="decrement-score">+</button>
       </div>
   </div>
-  <h1 (click)="addPlayer()">Add player</h1>
+  <button (click)="addPlayer()" mat-button>Add player</button>
+  <button (click)="startSession()" mat-button>Start Session</button>
 </div>
