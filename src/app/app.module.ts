@@ -32,6 +32,7 @@ import { GameDetailComponent } from './components/game-detail/game-detail.compon
 import { SessionDetailComponent } from './components/session-detail/session-detail.component';
 import { ScoreAdjustComponent } from './components/score-adjust/score-adjust.component';
 import { ScorecardScoreComponent } from './scorecard-score/scorecard-score.component';
+import { ScorecardPlayerComponent } from './scorecard-player/scorecard-player.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -56,6 +57,7 @@ export const firebaseConfig = {
     SessionDetailComponent,
     ScoreAdjustComponent,
     ScorecardScoreComponent,
+    ScorecardPlayerComponent,
   ],
   imports: [
     BrowserModule,
