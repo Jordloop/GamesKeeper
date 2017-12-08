@@ -1,14 +1,8 @@
 <div id="component-container">
   <div class="player" *ngFor="let player of players">
     <div class="player-name">
-      <mat-form-field>      
-        <mat-select placeholder="{{player.name}}">
-            <mat-option *ngFor="let avaliablePlayer of availablePlayers" (click)="setPlayerName(player, $event.path[0].innerText)" [value]="player.name">
-              {{ avaliablePlayer.name }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
+      <app-scorecard-player [player]="player"></app-scorecard-player>
+    </div>
       <div class="player-score">
         <button mat-icon-button (click)="decrementScore(player)" class="increment-score">
             <mat-icon aria-label="Subtract 1 from score">remove</mat-icon>

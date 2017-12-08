@@ -1,3 +1,9 @@
-<p>
-  scorecard-player works!
-</p>
+<div class="player-name">
+  <mat-form-field>      
+    <mat-select placeholder="{{player.name}}">
+      <mat-option *ngFor="let avaliablePlayer of availablePlayers" (click)="setPlayerName(player, $event.path[0].innerText)" [value]="player.name">
+        {{ avaliablePlayer.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

@@ -14,12 +14,11 @@
     background-color: tan;
 }
 .player-score {
-    /* width: 33%; */
     display: flex;
     justify-content:space-around;
 }
 
-.mat-form-field-type-mat-select {
+/* .mat-form-field-type-mat-select {
     width: 100px;
   }
 
@@ -30,18 +29,5 @@
   .mat-input-element {
         display: flex;  
         justify-content: center;
-  }
+  } */
 
-/* .increment-score {
-    background-color: green;
-}
-
-.decrement-score {
-    background-color: red;
-}
-
-.increment-score, .decrement-score {
-    width: 30px;
-    height: 30px;
-    margin: 10px;
-} */
