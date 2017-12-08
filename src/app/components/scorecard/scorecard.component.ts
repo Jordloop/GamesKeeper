@@ -7,7 +7,7 @@ import { PlayerService } from '../../services/player/player.service';
   styleUrls: ['./scorecard.component.css']
 })
 export class ScorecardComponent implements OnInit {
-  availablePlayers: object[] = null;
+  availablePlayers;
   players: object[] = [{ name: "", score: 0}];
 
   constructor(public plrSvc: PlayerService) { }
@@ -20,15 +20,35 @@ export class ScorecardComponent implements OnInit {
     this.plrSvc.getPlayers().subscribe(players => {
       if(players) {
         this.availablePlayers = players;
-        console.log(this.availablePlayers);
-        
+        console.log('getPlayers', this.availablePlayers);  
       }
     })
   }
 
   addPlayer() {
-    const newPlayer = {name: "", score: 0};
+    const newPlayer = {name: "New Player", score: 0};
     this.players.push(newPlayer);
+  }
+
+  setPlayerName(player, value) {
+    player.name = value;
+    console.log('setPlayerName', player);
+    
+  }
+
+  incrementScore(player) {
+    player.score++;
+    console.log('incrementScore', player);
+  }
+
+  decrementScore(player) {
+    player.score--;
+    console.log('decrementScore', player);
+  }
+
+  adjustScore(player, event) {
+    player.score = event.path[0].value;
+    console.log('adjustScore', player);
   }
 
 }
