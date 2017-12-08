@@ -31,8 +31,8 @@ import { PlayerFormComponent } from './components/player-form/player-form.compon
 import { GameDetailComponent } from './components/game-detail/game-detail.component';
 import { SessionDetailComponent } from './components/session-detail/session-detail.component';
 import { ScoreAdjustComponent } from './components/score-adjust/score-adjust.component';
-import { ScorecardScoreComponent } from './scorecard-score/scorecard-score.component';
-import { ScorecardPlayerComponent } from './scorecard-player/scorecard-player.component';
+import { ScorecardScoreComponent } from './components/scorecard-score/scorecard-score.component';
+import { ScorecardPlayerComponent } from './components/scorecard-player/scorecard-player.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
