@@ -10,12 +10,18 @@
         </mat-form-field>
       </div>
       <div class="player-score">
-        <button (click)="decrementScore(player)" mat-button class="increment-score">-</button>        
+        <button mat-icon-button (click)="decrementScore(player)" class="increment-score">
+            <mat-icon aria-label="Subtract 1 from score">remove</mat-icon>
+        </button>        
         <mat-form-field>
           <input (keydown.enter)="adjustScore(player, $event)" matInput value="{{player.score}}">
         </mat-form-field>
-        <button (click)="incrementScore(player)" mat-button class="decrement-score">+</button>
+        <button (click)="incrementScore(player)" mat-icon-button class="decrement-score">
+          <mat-icon aria-label="Add 1 to score">add</mat-icon>    
+        </button>
       </div>
   </div>
-  <button (click)="addPlayer()" mat-button>Add player</button>
+  <button (click)="addPlayer()"  mat-icon-button>
+    <mat-icon aria-label="Add player">person_add</mat-icon>
+  </button>
 </div>
