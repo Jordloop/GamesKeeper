@@ -7,14 +7,7 @@ import { GameService } from '../../services/game/game.service';
   styleUrls: ['./game-selection.component.css']
 })
 export class GameSelectionComponent implements OnInit {
-  gameKey: string = "-KxFUCmUOw9JnLHHPmVT";
-  game: object;
-  games: object[];
-  gameData: any = {
-    name: "Carcassonne",
-    sessionsCount: 0
-  };
-  
+ 
   constructor(private gameSvc: GameService) { }
 
   ngOnInit() {
