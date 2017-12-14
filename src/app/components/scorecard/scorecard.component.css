@@ -7,27 +7,9 @@
 }
 
 .player {
-    width: 80%;
+    width: 60%;
     display: flex;
     justify-content: space-around;
     margin: 2.5px;
     background-color: tan;
 }
-.player-score {
-    display: flex;
-    justify-content:space-around;
-}
-
-/* .mat-form-field-type-mat-select {
-    width: 100px;
-  }
-
-  .mat-form-field-type-mat-input {
-      width: 30px;
-  }
-  
-  .mat-input-element {
-        display: flex;  
-        justify-content: center;
-  } */
-
