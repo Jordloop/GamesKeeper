@@ -21,23 +21,6 @@ export class ScorecardComponent implements OnInit {
     this.players.push(newPlayer);
 
   }
-
-  // incrementScore(player) {
-  //   player.score++;
-  //   console.log('incrementScore', player);
-
-  // }
-
-  // decrementScore(player) {
-  //   player.score--;
-  //   console.log('decrementScore', player);
-
-  // }
-
-  // adjustScore(player, event) {
-  //   player.score = event.path[0].value;
-  //   console.log('adjustScore', player);
-
-  // }
+  
 
 }
