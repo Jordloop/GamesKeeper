@@ -22,22 +22,22 @@ export class ScorecardComponent implements OnInit {
 
   }
 
-  incrementScore(player) {
-    player.score++;
-    console.log('incrementScore', player);
+  // incrementScore(player) {
+  //   player.score++;
+  //   console.log('incrementScore', player);
 
-  }
+  // }
 
-  decrementScore(player) {
-    player.score--;
-    console.log('decrementScore', player);
+  // decrementScore(player) {
+  //   player.score--;
+  //   console.log('decrementScore', player);
 
-  }
+  // }
 
-  adjustScore(player, event) {
-    player.score = event.path[0].value;
-    console.log('adjustScore', player);
+  // adjustScore(player, event) {
+  //   player.score = event.path[0].value;
+  //   console.log('adjustScore', player);
 
-  }
+  // }
 
 }
